@@ -45,14 +45,14 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          <img 
-            src="https://themaplesquare.in/images/the-maple-square-logo.png" 
-            alt="The Maple Square" 
+          <img
+            src="https://themaplesquare.in/images/the-maple-square-logo.png"
+            alt="The Maple Square"
             className="w-32 md:w-48 mx-auto mb-8 drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]"
           />
         </motion.div>
-        
-        <motion.h1 
+
+        <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.7 }}
@@ -60,17 +60,17 @@ export default function Hero() {
         >
           <span className="text-gold">Prime.</span> Prestigious. <span className="italic font-light">Profitable.</span>
         </motion.h1>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.9 }}
           className="text-lg md:text-2xl text-offwhite/90 font-light mb-10 max-w-2xl mx-auto"
         >
-          Experience uncompromised luxury and strategic location at The Maple Square. 
+          Experience uncompromised luxury and strategic location at The Maple Square.
           Your gateway to a premium lifestyle.
         </motion.p>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -98,9 +98,8 @@ export default function Hero() {
           <button
             key={idx}
             onClick={() => setCurrentIndex(idx)}
-            className={`transition-all duration-300 rounded-full ${
-              idx === currentIndex ? 'w-8 h-2 bg-gold' : 'w-2 h-2 bg-white/50 hover:bg-white'
-            }`}
+            className={`transition-all duration-300 rounded-full ${idx === currentIndex ? 'w-8 h-2 bg-gold' : 'w-2 h-2 bg-white/50 hover:bg-white'
+              }`}
             aria-label={`Go to slide ${idx + 1}`}
           />
         ))}

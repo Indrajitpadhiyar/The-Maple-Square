@@ -31,15 +31,23 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <div className="flex-shrink-0 flex items-center gap-3">
-            <img 
-              src="https://themaplesquare.in/images/the-maple-square-logo.png" 
-              alt="The Maple Square Logo" 
-              className="h-10 w-auto"
-            />
-            <span className="text-gold font-serif text-2xl font-bold uppercase tracking-widest hidden sm:block">
-              The Maple Square
-            </span>
+          <div className="flex-shrink-0 flex items-center gap-4">
+            <div className="relative group">
+              <div className="absolute -inset-2 bg-gold/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+              <img 
+                src="https://themaplesquare.in/images/the-maple-square-logo.png" 
+                alt="The Maple Square Logo" 
+                className="h-12 w-auto relative mix-blend-screen brightness-110"
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-gold font-serif text-xl md:text-2xl font-bold uppercase tracking-[0.2em] leading-none">
+                The Maple
+              </span>
+              <span className="text-offwhite/60 font-sans text-[10px] uppercase tracking-[0.4em] mt-1 ml-0.5">
+                Square
+              </span>
+            </div>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
