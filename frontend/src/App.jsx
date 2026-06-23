@@ -8,6 +8,9 @@ import Footer from './components/Footer';
 function App() {
   return (
     <div className="bg-primary min-h-screen text-offwhite overflow-x-hidden selection:bg-gold selection:text-primary">
+      {/* Film grain noise overlay for premium texture */}
+      <div className="noise-overlay" />
+      
       <Navbar />
       <Hero />
       <AboutSection />

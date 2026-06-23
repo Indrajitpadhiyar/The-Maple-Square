@@ -3,84 +3,131 @@ import { MapPin, Shield, Star, Crown } from 'lucide-react';
 
 const features = [
   {
-    icon: <MapPin className="w-8 h-8 text-gold" />,
+    icon: MapPin,
     title: "Prime Location",
-    description: "Situated in the heart of the city with seamless connectivity to major hubs, schools, and hospitals."
+    description: "Situated in the heart of the city with seamless connectivity to major hubs, schools, and hospitals.",
+    stat: "01"
   },
   {
-    icon: <Crown className="w-8 h-8 text-gold" />,
+    icon: Crown,
     title: "Prestigious Living",
-    description: "Architectural brilliance combined with world-class amenities designed for the elite."
+    description: "Architectural brilliance combined with world-class amenities designed for the elite.",
+    stat: "02"
   },
   {
-    icon: <Star className="w-8 h-8 text-gold" />,
+    icon: Star,
     title: "Profitable Investment",
-    description: "Guaranteed high returns on investment with our meticulously planned commercial and residential spaces."
+    description: "Guaranteed high returns on investment with meticulously planned commercial and residential spaces.",
+    stat: "03"
   },
   {
-    icon: <Shield className="w-8 h-8 text-gold" />,
+    icon: Shield,
     title: "Secure Environment",
-    description: "24/7 advanced multi-tier security systems ensuring absolute peace of mind."
+    description: "24/7 advanced multi-tier security systems ensuring absolute peace of mind.",
+    stat: "04"
   }
 ];
 
 export default function AboutSection() {
   return (
-    <section id="layout" className="py-24 bg-primary relative overflow-hidden">
-      {/* Decorative Gold Elements */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-gold opacity-5 blur-[100px] rounded-full" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold opacity-5 blur-[150px] rounded-full" />
+    <section id="layout" className="relative overflow-hidden">
+      {/* Top Divider */}
+      <div className="section-divider" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="text-gold font-sans tracking-widest uppercase text-sm mb-3 font-semibold"
-          >
-            Discover Excellence
-          </motion.h2>
-          <motion.h3 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-5xl font-serif text-white max-w-3xl mx-auto"
-          >
-            Redefining Urban Spaces with Elegance and Vision
-          </motion.h3>
-          <motion.div 
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="h-px w-24 bg-gold mx-auto mt-8 Origin-center"
-          />
-        </div>
+      <div className="py-28 bg-surface relative">
+        {/* Decorative Elements */}
+        <div className="absolute top-0 left-0 w-80 h-80 bg-gold opacity-[0.03] blur-[140px] rounded-full" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gold opacity-[0.02] blur-[180px] rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] border border-gold/[0.04] rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-gold/[0.02] rounded-full" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-20">
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
-              className="bg-white/[0.02] border border-white/10 p-8 hover:bg-white/[0.04] hover:border-gold/50 transition-all duration-300 group rounded-sm"
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/[0.06] border border-gold/15 text-gold text-[11px] tracking-[0.2em] uppercase font-semibold mb-6"
             >
-              <div className="bg-gold/10 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                {feature.icon}
-              </div>
-              <h4 className="text-xl font-serif text-white mb-3">{feature.title}</h4>
-              <p className="text-offwhite/70 text-sm leading-relaxed">
-                {feature.description}
-              </p>
-            </motion.div>
-          ))}
+              <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+              Discover Excellence
+            </motion.span>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.15 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-serif text-white max-w-3xl mx-auto leading-tight"
+            >
+              Redefining Urban Spaces
+              <br />
+              with <span className="gold-gradient-text italic">Elegance</span>
+            </motion.h2>
+
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="h-px w-20 mx-auto mt-8 bg-gradient-to-r from-transparent via-gold to-transparent"
+            />
+          </div>
+
+          {/* Feature Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {features.map((feature, idx) => {
+              const Icon = feature.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.6, delay: idx * 0.12 }}
+                  className="group relative rounded-2xl overflow-hidden"
+                >
+                  {/* Card Background */}
+                  <div className="absolute inset-0 glass-card rounded-2xl transition-all duration-500 group-hover:bg-gold/[0.04]" />
+                  <div className="absolute inset-0 gold-border-glow rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  <div className="relative p-8">
+                    {/* Number */}
+                    <span className="absolute top-6 right-6 text-gold/10 text-5xl font-serif font-bold group-hover:text-gold/20 transition-colors duration-500">
+                      {feature.stat}
+                    </span>
+
+                    {/* Icon */}
+                    <div className="relative mb-6">
+                      <div className="w-14 h-14 rounded-xl bg-gold/[0.08] flex items-center justify-center group-hover:bg-gold/[0.15] group-hover:scale-110 transition-all duration-500">
+                        <Icon className="w-6 h-6 text-gold" />
+                      </div>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-lg font-serif text-white mb-3 group-hover:text-gold transition-colors duration-300">
+                      {feature.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-muted text-sm leading-relaxed">
+                      {feature.description}
+                    </p>
+
+                    {/* Bottom accent */}
+                    <div className="mt-6 h-[2px] w-0 bg-gradient-to-r from-gold to-gold-light group-hover:w-12 transition-all duration-500 rounded-full" />
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
+
+      {/* Bottom Divider */}
+      <div className="section-divider" />
     </section>
   );
 }
