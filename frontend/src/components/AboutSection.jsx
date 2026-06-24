@@ -49,9 +49,9 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/[0.06] border border-gold/15 text-gold text-[11px] tracking-[0.2em] uppercase font-semibold mb-6"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/[0.03] border border-black/10 text-black/80 text-[11px] tracking-[0.2em] uppercase font-bold mb-6 font-sans"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+              <span className="w-1.5 h-1.5 rounded-full bg-black" />
               Discover Excellence
             </motion.span>
 
@@ -60,11 +60,11 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: 0.15 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-serif text-white max-w-3xl mx-auto leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-syne text-offwhite max-w-3xl mx-auto leading-tight"
             >
               Redefining Urban Spaces
               <br />
-              with <span className="gold-gradient-text italic">Elegance</span>
+              with <span className="gold-gradient-text italic font-serif">Elegance</span>
             </motion.h2>
 
             <motion.div
@@ -90,24 +90,24 @@ export default function AboutSection() {
                   className="group relative rounded-2xl overflow-hidden"
                 >
                   {/* Card Background */}
-                  <div className="absolute inset-0 glass-card rounded-2xl transition-all duration-500 group-hover:bg-gold/[0.04]" />
+                  <div className="absolute inset-0 glass-card rounded-2xl transition-all duration-500 group-hover:bg-[#F4F4F4]/50" />
                   <div className="absolute inset-0 gold-border-glow rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   <div className="relative p-8">
                     {/* Number */}
-                    <span className="absolute top-6 right-6 text-gold/10 text-5xl font-serif font-bold group-hover:text-gold/20 transition-colors duration-500">
+                    <span className="absolute top-6 right-6 text-black/5 text-5xl font-syne font-bold group-hover:text-black/10 transition-colors duration-500">
                       {feature.stat}
                     </span>
 
                     {/* Icon */}
                     <div className="relative mb-6">
-                      <div className="w-14 h-14 rounded-xl bg-gold/[0.08] flex items-center justify-center group-hover:bg-gold/[0.15] group-hover:scale-110 transition-all duration-500">
-                        <Icon className="w-6 h-6 text-gold" />
+                      <div className="w-14 h-14 rounded-xl bg-black/[0.03] flex items-center justify-center group-hover:bg-black/[0.08] group-hover:scale-110 transition-all duration-500">
+                        <Icon className="w-6 h-6 text-black" />
                       </div>
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-lg font-serif text-white mb-3 group-hover:text-gold transition-colors duration-300">
+                    <h3 className="text-lg font-syne text-offwhite mb-3 group-hover:text-black transition-colors duration-300">
                       {feature.title}
                     </h3>
 

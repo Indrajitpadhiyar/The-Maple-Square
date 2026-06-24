@@ -53,7 +53,7 @@ export default function ImageGallery() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/[0.06] border border-gold/15 text-gold text-[11px] tracking-[0.2em] uppercase font-semibold mb-6"
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/[0.03] border border-black/10 text-black/85 text-[11px] tracking-[0.2em] uppercase font-bold mb-6 font-sans"
               >
                 <Images size={14} />
                 <span>A Glimpse of Perfection</span>
@@ -64,9 +64,9 @@ export default function ImageGallery() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.15 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight"
+                className="text-4xl md:text-5xl lg:text-6xl font-syne text-offwhite leading-tight"
               >
-                Visual <span className="gold-gradient-text italic">Gallery</span>
+                Visual <span className="gold-gradient-text italic font-serif">Gallery</span>
               </motion.h2>
             </div>
 

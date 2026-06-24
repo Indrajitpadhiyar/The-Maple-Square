@@ -72,7 +72,7 @@ export default function FloorPlans() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/[0.06] border border-gold/15 text-gold text-[11px] tracking-[0.2em] uppercase font-semibold mb-6"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/[0.03] border border-black/10 text-black/85 text-[11px] tracking-[0.2em] uppercase font-bold mb-6 font-sans"
           >
             <LayoutGrid size={14} />
             <span>Master Layouts</span>
@@ -83,9 +83,9 @@ export default function FloorPlans() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-serif text-white max-w-3xl mx-auto leading-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-syne text-offwhite max-w-3xl mx-auto leading-tight"
           >
-            Distinctive <span className="gold-gradient-text italic">Floor Plans</span>
+            Distinctive <span className="gold-gradient-text italic font-serif">Floor Plans</span>
           </motion.h2>
         </div>
 
@@ -103,14 +103,14 @@ export default function FloorPlans() {
               <button
                 key={plan.id}
                 onClick={() => setActiveTab(idx)}
-                className={`relative px-5 py-2.5 text-[12px] font-semibold transition-all duration-300 uppercase tracking-[0.12em] rounded-full ${
-                  isActive ? 'text-primary' : 'text-offwhite/50 hover:text-offwhite/80'
+                className={`relative px-5 py-2.5 text-[12px] font-bold transition-all duration-300 uppercase tracking-[0.12em] rounded-full ${
+                  isActive ? 'text-white' : 'text-black/50 hover:text-black'
                 }`}
               >
                 {isActive && (
                   <motion.div
                     layoutId="active-floor-tab"
-                    className="absolute inset-0 bg-gradient-to-r from-gold to-gold-light rounded-full shadow-[0_0_20px_rgba(212,175,55,0.3)]"
+                    className="absolute inset-0 bg-[#0A0A0A] rounded-full shadow-sm"
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}
@@ -138,18 +138,18 @@ export default function FloorPlans() {
               {/* Text Content */}
               <div className="w-full lg:w-[35%] flex flex-col justify-center">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center">
-                    <span className="text-gold font-serif font-bold text-sm">
+                  <div className="w-10 h-10 rounded-lg bg-black/[0.04] flex items-center justify-center">
+                    <span className="text-black font-syne font-bold text-sm">
                       {String(activeTab + 1).padStart(2, '0')}
                     </span>
                   </div>
-                  <div className="h-px flex-1 bg-gradient-to-r from-gold/30 to-transparent" />
+                  <div className="h-px flex-1 bg-gradient-to-r from-black/10 to-transparent" />
                 </div>
 
-                <h3 className="text-3xl md:text-4xl font-serif text-white mb-2">
+                <h3 className="text-3xl md:text-4xl font-syne text-offwhite mb-2">
                   {plans[activeTab].title}
                 </h3>
-                <span className="gold-gradient-text text-sm tracking-widest uppercase font-semibold mb-6">
+                <span className="text-black/50 text-xs tracking-widest uppercase font-bold mb-6">
                   Layout Plan
                 </span>
 
@@ -157,7 +157,7 @@ export default function FloorPlans() {
                   {plans[activeTab].desc}
                 </p>
 
-                <div className="flex items-center gap-3 text-gold text-sm tracking-wider uppercase font-semibold group cursor-default">
+                <div className="flex items-center gap-3 text-black/80 text-sm tracking-wider uppercase font-semibold group cursor-default">
                   <Maximize2 size={16} />
                   <span>Interactive Preview</span>
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -166,22 +166,22 @@ export default function FloorPlans() {
 
               {/* Image */}
               <div className="w-full lg:w-[65%] relative group">
-                <div className="bg-surface rounded-xl p-3 border border-white/[0.06] shadow-2xl overflow-hidden">
-                  {/* Gold top bar */}
+                <div className="bg-surface rounded-xl p-3 border border-black/[0.05] shadow-[0_8px_30px_rgba(0,0,0,0.02)] overflow-hidden">
+                  {/* Top Bar Window Accent */}
                   <div className="flex items-center gap-2 mb-3 px-2">
-                    <div className="w-2.5 h-2.5 rounded-full bg-gold/40" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
-                    <span className="text-[10px] text-muted/50 tracking-wider ml-2 uppercase">Blueprint View</span>
+                    <div className="w-2.5 h-2.5 rounded-full bg-black/20" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-black/10" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-black/10" />
+                    <span className="text-[10px] text-muted/40 tracking-wider ml-2 uppercase">Blueprint View</span>
                   </div>
 
-                  <div className="relative overflow-hidden rounded-lg bg-black/30">
+                  <div className="relative overflow-hidden rounded-lg bg-black/[0.01]">
                     <img
                       src={plans[activeTab].image}
                       alt={`${plans[activeTab].title} Blueprint`}
                       className="w-full h-auto object-contain max-h-[500px] mx-auto transition-transform duration-700 group-hover:scale-[1.02]"
                     />
-                    <div className="absolute inset-0 bg-gold/0 group-hover:bg-gold/[0.02] transition-colors duration-500 pointer-events-none" />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/[0.01] transition-colors duration-500 pointer-events-none" />
                   </div>
                 </div>
               </div>

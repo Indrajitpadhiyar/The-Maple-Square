@@ -1,14 +1,26 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
-  { name: 'About', href: '#layout' },
-  { name: 'Floor Plans', href: '#floor-plans' },
+  { name: 'Residences', href: '#layout' },
+  { name: 'Amenities', href: '#floor-plans' },
   { name: 'Gallery', href: '#gallery' },
   { name: 'Contact', href: '#contact' }
 ];
+
+const MapleLeafIcon = () => (
+  <svg 
+    className="w-5 h-5 text-[#FFB800] fill-current transition-transform duration-500 hover:rotate-12" 
+    viewBox="0 0 24 24" 
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M12 3s-.3 1.8-.8 2.6c-.6-.4-1.3-.9-2.1-1.2.2.9.2 1.8-.1 2.6-.7-.3-1.4-.7-2.2-1 .4 1 .2 2.1-.5 2.8-.8-.2-1.6-.4-2.4-.6.6.9.7 2 .2 2.9-.8-.1-1.6-.2-2.4-.2 1 1 1.4 2.1 1 3.2-.8.1-1.6.4-2.3.8 1.4.3 2.1.9 2.5 2-.8.4-1.4 1-1.8 1.8 1.8-.2 3.1-.9 3.8-2-.4 1-.4 2.1-.2 3.2.9-.6 1.7-1.4 2.3-2.4 0 .9.2 1.8.6 2.6 1.1-1.3 1.6-2.9 1.5-4.6.4 1 .9 1.9 1.6 2.7.3-1 .2-2.1-.2-3.1.6.5 1.3 1 2.1 1.3 0-1.1-.4-2.1-1.2-2.9.7-.1 1.4-.1 2 .1-.4-1-1.2-1.8-2.2-2.2.8-.5 1.5-1.1 2-2-.8.2-1.6.5-2.3 1 .1-1.1-.3-2.1-1-2.9.8.4 1.5 1 2 1.8-.1-1.1-.7-2-1.6-2.5-.2.8-.7 1.5-1.3 2 .2-1.3.1-2.7-.4-3.9z" />
+    <path d="M12.5 16.5v5.5a.5.5 0 01-1 0v-5.5a.5.5 0 011 0z" />
+  </svg>
+);
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +29,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 40);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -33,7 +45,7 @@ export default function Navbar() {
           }
         });
       },
-      { rootMargin: '-40% 0px -60% 0px' }
+      { rootMargin: '-30% 0px -70% 0px' }
     );
 
     const sections = document.querySelectorAll('section[id], footer[id]');
@@ -44,59 +56,51 @@ export default function Navbar() {
   return (
     <>
       <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className={`fixed w-full z-50 transition-all duration-500 ${
-          scrolled
-            ? 'py-3'
-            : 'py-5'
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 w-full ${
+          scrolled 
+            ? 'py-3 bg-white/75 backdrop-blur-xl border-b border-black/[0.03] shadow-[0_4px_30px_rgba(0,0,0,0.02)]' 
+            : 'py-6 bg-transparent'
         }`}
       >
-        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${
-          scrolled ? 'bg-primary/80 backdrop-blur-xl border border-white/[0.06] rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] mx-4 sm:mx-6 lg:mx-auto px-6' : ''
-        } transition-all duration-500`}>
-          <div className="flex justify-between items-center h-14">
-            {/* Logo */}
-            <a href="#home" className="flex-shrink-0 flex items-center gap-3 group">
-              <div className="relative">
-                <div className="absolute -inset-2 bg-gold/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-all duration-500" />
-                <img
-                  src="https://themaplesquare.in/images/the-maple-square-logo.png"
-                  alt="The Maple Square Logo"
-                  className="h-10 w-auto relative mix-blend-screen brightness-110 group-hover:brightness-125 transition-all duration-300"
-                />
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="gold-gradient-text font-serif text-lg md:text-xl font-bold tracking-[0.15em] uppercase">
-                  The Maple
-                </span>
-                <span className="text-muted font-sans text-[9px] uppercase tracking-[0.5em] mt-0.5 ml-0.5">
-                  Square
-                </span>
-              </div>
+        <div className="max-w-7xl mx-auto px-6 sm:px-8">
+          <div className="flex justify-between items-center h-12">
+            
+            {/* Left side: Luxury Brand Logo */}
+            <a href="#home" className="flex items-center gap-3 group">
+              <MapleLeafIcon />
+              <span className="font-serif text-[12px] sm:text-[14px] tracking-[0.3em] font-semibold text-black uppercase select-none transition-colors duration-300">
+                MAPLE
+              </span>
             </a>
 
-            {/* Desktop Nav Links */}
-            <div className="hidden lg:flex items-center gap-1">
+            {/* Center: Navigation Links */}
+            <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => {
-                const isActive = activeSection === link.href.replace('#', '');
+                const sectionId = link.href.replace('#', '');
+                const isActive = activeSection === sectionId || 
+                  (sectionId === 'layout' && activeSection === 'layout');
+
                 return (
                   <a
                     key={link.name}
                     href={link.href}
-                    className="relative px-4 py-2 text-[13px] tracking-[0.12em] uppercase font-medium transition-all duration-300 group"
+                    className="relative py-2 text-[10px] uppercase tracking-[0.2em] font-bold font-sans transition-all duration-300 group/link"
                   >
-                    <span className={`relative z-10 transition-colors duration-300 ${
-                      isActive ? 'text-gold' : 'text-offwhite/70 group-hover:text-offwhite'
+                    <span className={`transition-colors duration-300 ${
+                      isActive 
+                        ? 'text-black' 
+                        : 'text-black/55 hover:text-black'
                     }`}>
                       {link.name}
                     </span>
                     {isActive && (
-                      <motion.div
-                        layoutId="nav-active"
-                        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-[2px] bg-gold rounded-full"
-                        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                      <motion.span
+                        layoutId="nav-dot-active"
+                        className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-[5px] h-[5px] rounded-full bg-[#FFB800]"
+                        transition={{ type: 'spring', stiffness: 350, damping: 25 }}
                       />
                     )}
                   </a>
@@ -104,49 +108,28 @@ export default function Navbar() {
               })}
             </div>
 
-            {/* CTA Button */}
-            <div className="hidden lg:flex items-center">
+            {/* Right side: Private Tour Button */}
+            <div className="hidden md:block">
               <a
                 href="#contact"
-                className="btn-gold px-6 py-2.5 rounded-full text-[12px] tracking-[0.15em] flex items-center gap-2"
+                className="inline-flex items-center justify-center border border-black/10 bg-white/40 hover:bg-black hover:text-white hover:border-black px-6 py-2.5 rounded-full text-[10px] uppercase tracking-[0.18em] font-bold transition-all duration-300 gap-2 shadow-[0_4px_12px_rgba(0,0,0,0.01)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] backdrop-blur-md"
               >
-                <span>Inquire Now</span>
-                <ArrowUpRight size={14} strokeWidth={2.5} />
+                <span>Schedule a Private Tour</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FFB800]" />
               </a>
             </div>
 
-            {/* Mobile Menu Button */}
-            <div className="lg:hidden flex items-center">
+            {/* Mobile Menu Button toggle */}
+            <div className="md:hidden flex items-center gap-3">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="relative w-10 h-10 flex items-center justify-center text-gold hover:text-gold-light transition-colors"
+                className="w-10 h-10 rounded-full bg-white/80 border border-black/[0.05] flex items-center justify-center text-black hover:bg-white transition-all shadow-[0_4px_12px_rgba(0,0,0,0.01)]"
                 aria-label="Toggle Menu"
               >
-                <AnimatePresence mode="wait">
-                  {isOpen ? (
-                    <motion.div
-                      key="close"
-                      initial={{ rotate: -90, opacity: 0 }}
-                      animate={{ rotate: 0, opacity: 1 }}
-                      exit={{ rotate: 90, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <X size={24} />
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="menu"
-                      initial={{ rotate: 90, opacity: 0 }}
-                      animate={{ rotate: 0, opacity: 1 }}
-                      exit={{ rotate: -90, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <Menu size={24} />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {isOpen ? <X size={16} /> : <Menu size={16} />}
               </button>
             </div>
+
           </div>
         </div>
       </motion.nav>
@@ -162,63 +145,63 @@ export default function Navbar() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40"
+              className="fixed inset-0 bg-black/10 backdrop-blur-md z-45"
             />
             {/* Drawer */}
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="fixed right-0 top-0 h-full w-[85%] max-w-sm bg-surface/95 backdrop-blur-2xl z-50 border-l border-white/[0.06] shadow-2xl"
+              transition={{ type: 'spring', damping: 30, stiffness: 350 }}
+              className="fixed right-0 top-0 h-full w-[80%] max-w-[280px] bg-white z-50 border-l border-black/[0.04] shadow-[0_0_50px_rgba(0,0,0,0.05)] flex flex-col"
             >
-              <div className="flex flex-col h-full">
-                {/* Drawer Header */}
-                <div className="flex items-center justify-between px-6 py-5 border-b border-white/[0.06]">
-                  <span className="gold-gradient-text font-serif text-lg font-bold tracking-widest uppercase">
-                    Menu
+              <div className="flex items-center justify-between px-6 py-6 border-b border-black/[0.04]">
+                <div className="flex items-center gap-2">
+                  <MapleLeafIcon />
+                  <span className="font-serif text-[11px] tracking-[0.2em] font-semibold text-black uppercase">
+                    MAPLE
                   </span>
-                  <button
-                    onClick={() => setIsOpen(false)}
-                    className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gold hover:bg-gold/10 transition-all"
-                  >
-                    <X size={18} />
-                  </button>
                 </div>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="w-8 h-8 rounded-full bg-white border border-black/[0.04] flex items-center justify-center text-black hover:bg-black/5 transition-all"
+                >
+                  <X size={14} />
+                </button>
+              </div>
 
-                {/* Drawer Links */}
-                <div className="flex-1 px-6 py-8 space-y-1">
-                  {navLinks.map((link, idx) => (
+              <div className="flex-1 px-6 py-8 flex flex-col gap-2">
+                {navLinks.map((link, idx) => {
+                  const isActive = activeSection === link.href.replace('#', '');
+                  return (
                     <motion.a
                       key={link.name}
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      initial={{ opacity: 0, x: 30 }}
+                      initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.1 + idx * 0.06, duration: 0.4 }}
-                      className={`flex items-center justify-between px-4 py-4 rounded-xl text-sm uppercase tracking-[0.15em] font-medium transition-all duration-300 ${
-                        activeSection === link.href.replace('#', '')
-                          ? 'text-gold bg-gold/[0.06]'
-                          : 'text-offwhite/70 hover:text-offwhite hover:bg-white/[0.03]'
+                      transition={{ delay: idx * 0.05, duration: 0.4 }}
+                      className={`flex items-center justify-between px-5 py-3 rounded-full text-xs uppercase tracking-[0.15em] font-bold transition-all duration-200 ${
+                        isActive
+                          ? 'text-white bg-black'
+                          : 'text-black/60 hover:text-black hover:bg-black/[0.03]'
                       }`}
                     >
                       <span>{link.name}</span>
-                      <ArrowUpRight size={14} className="opacity-40" />
                     </motion.a>
-                  ))}
-                </div>
+                  );
+                })}
+              </div>
 
-                {/* Drawer Footer */}
-                <div className="px-6 py-6 border-t border-white/[0.06]">
-                  <a
-                    href="#contact"
-                    onClick={() => setIsOpen(false)}
-                    className="btn-gold w-full py-4 rounded-xl text-sm tracking-[0.15em] flex items-center justify-center gap-2"
-                  >
-                    <span>Inquire Now</span>
-                    <ArrowUpRight size={14} strokeWidth={2.5} />
-                  </a>
-                </div>
+              <div className="p-6 border-t border-black/[0.04]">
+                <a
+                  href="#contact"
+                  onClick={() => setIsOpen(false)}
+                  className="w-full bg-[#0A0A0A] hover:bg-[#222] text-white py-4 rounded-full text-[10px] tracking-[0.18em] font-bold flex items-center justify-center gap-2 transition-all duration-300"
+                >
+                  <span>Schedule Tour</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FFB800]" />
+                </a>
               </div>
             </motion.div>
           </>
