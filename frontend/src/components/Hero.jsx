@@ -146,13 +146,28 @@ export default function Hero() {
         {/* Ambient fade/glow effect on the left corner */}
         <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-gradient-to-tr from-[#FFB800]/[0.06] via-transparent to-transparent rounded-full blur-[90px] pointer-events-none z-0" />
 
-        <div className="absolute inset-x-0 top-[18%] sm:top-[12%] md:top-[4%] z-10 select-none pointer-events-none w-full flex justify-center">
+        <div className="absolute inset-x-0 top-[20%] sm:top-[14%] md:top-[12%] lg:top-[12%] z-10 select-none pointer-events-none w-full flex justify-center">
           <motion.div 
             style={{ y: yBgText, opacity: opacityBgText }}
             className="md:translate-x-[6vw] lg:translate-x-[10vw] xl:translate-x-[12vw]"
           >
-            <h1 className="font-serif font-normal leading-[0.75] tracking-[-0.04em] text-[clamp(7.5rem,23.5vw,25rem)] text-[#FFB800]/90 lg:text-[#FFB800]/80 text-center">
-              Maple
+            <h1 className="font-serif font-normal leading-normal tracking-[-0.04em] text-[clamp(4rem,11.5vw,11.5rem)] text-center flex flex-col items-center opacity-95 lg:opacity-90">
+              <div className="relative inline-flex flex-col items-center">
+                {/* "The" aligned at top left of Maple */}
+                <span className="absolute -top-[0.34em] left-[0.05em] font-serif text-[0.26em] tracking-wide text-white lg:text-[#0A0A0A] font-semibold">
+                  The
+                </span>
+                
+                {/* "Maple" styled with premium golden gradient, inline-block with bottom padding to fix cut-off "p" */}
+                <span className="bg-gradient-to-br from-[#B38100] via-[#FFB800] to-[#FFE89C] bg-clip-text text-transparent select-none inline-block pb-[0.08em]">
+                  Maple
+                </span>
+
+                {/* "Group" aligned at bottom right of Maple */}
+                <span className="absolute -bottom-[0.24em] right-[0.05em] font-serif text-[0.26em] tracking-wide text-white lg:text-[#0A0A0A] font-semibold">
+                  Group
+                </span>
+              </div>
             </h1>
           </motion.div>
         </div>
