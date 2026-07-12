@@ -1,19 +1,19 @@
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'Residences', href: '#layout' },
-  { name: 'Amenities', href: '#floor-plans' },
-  { name: 'Gallery', href: '#gallery' },
-  { name: 'Contact', href: '#contact' }
+  { name: "Home", href: "#home" },
+  { name: "Residences", href: "#layout" },
+  { name: "Amenities", href: "#floor-plans" },
+  { name: "Gallery", href: "#gallery" },
+  { name: "Contact", href: "#contact" },
 ];
 
 const MapleLeafIcon = () => (
-  <svg 
-    className="w-5 h-5 text-[#FFB800] fill-current transition-transform duration-500 hover:rotate-12" 
-    viewBox="0 0 24 24" 
+  <svg
+    className="w-5 h-5 text-[#FFB800] fill-current transition-transform duration-500 hover:rotate-12"
+    viewBox="0 0 24 24"
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -25,14 +25,14 @@ const MapleLeafIcon = () => (
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Track active section
@@ -45,10 +45,10 @@ export default function Navbar() {
           }
         });
       },
-      { rootMargin: '-30% 0px -70% 0px' }
+      { rootMargin: "-30% 0px -70% 0px" },
     );
 
-    const sections = document.querySelectorAll('section[id], footer[id]');
+    const sections = document.querySelectorAll("section[id], footer[id]");
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
   }, []);
@@ -60,14 +60,13 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 w-full ${
-          scrolled 
-            ? 'py-3 bg-white/75 backdrop-blur-xl border-b border-black/[0.03] shadow-[0_4px_30px_rgba(0,0,0,0.02)]' 
-            : 'py-6 bg-transparent'
+          scrolled
+            ? "py-3 bg-white/75 backdrop-blur-xl border-b border-black/[0.03] shadow-[0_4px_30px_rgba(0,0,0,0.02)]"
+            : "py-6 bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
           <div className="flex justify-between items-center h-12">
-            
             {/* Left side: Luxury Brand Logo */}
             <a href="#home" className="flex items-center gap-3 group">
               <MapleLeafIcon />
@@ -79,9 +78,10 @@ export default function Navbar() {
             {/* Center: Navigation Links */}
             <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => {
-                const sectionId = link.href.replace('#', '');
-                const isActive = activeSection === sectionId || 
-                  (sectionId === 'layout' && activeSection === 'layout');
+                const sectionId = link.href.replace("#", "");
+                const isActive =
+                  activeSection === sectionId ||
+                  (sectionId === "layout" && activeSection === "layout");
 
                 return (
                   <a
@@ -89,18 +89,24 @@ export default function Navbar() {
                     href={link.href}
                     className="relative py-2 text-[10px] uppercase tracking-[0.2em] font-bold font-sans transition-all duration-300 group/link"
                   >
-                    <span className={`transition-colors duration-300 ${
-                      isActive 
-                        ? 'text-black' 
-                        : 'text-black/55 hover:text-black'
-                    }`}>
+                    <span
+                      className={`transition-colors duration-300 ${
+                        isActive
+                          ? "text-black"
+                          : "text-black/55 hover:text-black"
+                      }`}
+                    >
                       {link.name}
                     </span>
                     {isActive && (
                       <motion.span
                         layoutId="nav-dot-active"
                         className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-[5px] h-[5px] rounded-full bg-[#FFB800]"
-                        transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 350,
+                          damping: 25,
+                        }}
                       />
                     )}
                   </a>
@@ -129,7 +135,6 @@ export default function Navbar() {
                 {isOpen ? <X size={16} /> : <Menu size={16} />}
               </button>
             </div>
-
           </div>
         </div>
       </motion.nav>
@@ -149,10 +154,10 @@ export default function Navbar() {
             />
             {/* Drawer */}
             <motion.div
-              initial={{ x: '100%' }}
+              initial={{ x: "100%" }}
               animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 350 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 350 }}
               className="fixed right-0 top-0 h-full w-[80%] max-w-[280px] bg-white z-50 border-l border-black/[0.04] shadow-[0_0_50px_rgba(0,0,0,0.05)] flex flex-col"
             >
               <div className="flex items-center justify-between px-6 py-6 border-b border-black/[0.04]">
@@ -172,7 +177,7 @@ export default function Navbar() {
 
               <div className="flex-1 px-6 py-8 flex flex-col gap-2">
                 {navLinks.map((link, idx) => {
-                  const isActive = activeSection === link.href.replace('#', '');
+                  const isActive = activeSection === link.href.replace("#", "");
                   return (
                     <motion.a
                       key={link.name}
@@ -183,8 +188,8 @@ export default function Navbar() {
                       transition={{ delay: idx * 0.05, duration: 0.4 }}
                       className={`flex items-center justify-between px-5 py-3 rounded-full text-xs uppercase tracking-[0.15em] font-bold transition-all duration-200 ${
                         isActive
-                          ? 'text-white bg-black'
-                          : 'text-black/60 hover:text-black hover:bg-black/[0.03]'
+                          ? "text-white bg-black"
+                          : "text-black/60 hover:text-black hover:bg-black/[0.03]"
                       }`}
                     >
                       <span>{link.name}</span>

@@ -260,12 +260,12 @@ export default function Footer() {
                   </div>
                   <div>
                     <a
-                      href="https://maps.google.com/?q=123+Maple+Avenue,+Elite+District,+Premium+City"
+                      href="https://maps.google.com/?q=The+Maple+Square+Bharuch"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-zinc-400 hover:text-[#FFB800] transition-colors text-xs sm:text-sm leading-relaxed"
                     >
-                      123 Maple Avenue, Elite District, Premium City 400001
+                      The Maple Square, Tavra-Shuklatirth Road, near Narmada College, Tavra, Bharuch, Gujarat 392011
                     </a>
                   </div>
                 </li>

@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
-import Lenis from 'lenis';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import AboutSection from './components/AboutSection';
-import FloorPlans from './components/FloorPlans';
-import ImageGallery from './components/ImageGallery';
-import Footer from './components/Footer';
+import { useEffect } from "react";
+import Lenis from "lenis";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import AboutSection from "./components/AboutSection";
+import FloorPlans from "./components/FloorPlans";
+import ImageGallery from "./components/ImageGallery";
+import Footer from "./components/Footer";
 
 function App() {
   // Initialize Lenis scroll
