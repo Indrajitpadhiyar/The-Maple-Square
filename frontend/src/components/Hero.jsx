@@ -125,7 +125,7 @@ export default function Hero() {
         ref={containerRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="relative min-h-[960px] lg:h-screen w-full bg-[#0A0A0A] lg:bg-[#FBFBFB] text-white lg:text-[#0A0A0A] overflow-hidden flex flex-col justify-between pt-32 pb-12 transition-colors duration-500"
+        className="relative min-h-[145vh] sm:min-h-[125vh] lg:min-h-[960px] lg:h-screen w-full bg-[#0A0A0A] lg:bg-[#FBFBFB] text-white lg:text-[#0A0A0A] overflow-hidden flex flex-col justify-between pt-32 pb-12 transition-colors duration-500"
       >
         {/* Luxury Background Patterns & Soft Geometric Lines */}
         <div className="absolute inset-0 pointer-events-none z-0">
@@ -176,36 +176,37 @@ export default function Hero() {
         <div className="relative z-20 max-w-[1400px] mx-auto px-8 sm:px-12 lg:px-16 w-full flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-8">
           
           {/* Left Content Area: 5 cols */}
-          <div className="lg:col-span-5 flex flex-col justify-center text-left relative z-25">
+          <div className="lg:col-span-5 flex flex-col justify-center items-center lg:items-start text-center lg:text-left relative z-25 w-full">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: isLoading ? 0 : 1, y: isLoading ? 30 : 0 }}
               transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full flex flex-col items-center lg:items-start"
             >
               {/* Luxury Label */}
-              <span className="inline-flex items-center gap-2 text-[10px] uppercase font-sans font-bold tracking-[0.25em] text-[#FFB800] mb-4">
+              <span className="hidden lg:inline-flex items-center gap-2 text-[10px] uppercase font-sans font-bold tracking-[0.25em] text-[#FFB800] mb-4">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FFB800] animate-pulse" />
                 LUXURY RESIDENCES
               </span>
 
               {/* Main Heading */}
-              <h2 className="font-serif text-5xl sm:text-6xl lg:text-[72px] leading-[1.08] tracking-[-0.02em] text-white lg:text-[#0A0A0A] font-light mb-6">
+              <h2 className="hidden lg:block font-serif text-5xl sm:text-6xl lg:text-[72px] leading-[1.08] tracking-[-0.02em] text-white lg:text-[#0A0A0A] font-light mb-6">
                 Elevating
                 <br />
                 Urban Living
               </h2>
 
               {/* Description */}
-              <p className="text-white/70 lg:text-black/55 text-sm sm:text-base font-light leading-relaxed max-w-md mb-10 font-sans">
+              <p className="text-white/70 lg:text-black/55 text-sm sm:text-base font-light leading-relaxed max-w-md mx-auto lg:mx-0 mb-10 font-sans">
                 Premium luxury residences designed for modern lifestyles with world-class amenities and architectural excellence.
               </p>
 
               {/* Buttons with Premium Interactions */}
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-col sm:flex-row lg:flex-wrap items-center justify-center lg:justify-start gap-4 w-full max-w-sm lg:max-w-none mx-auto lg:mx-0">
                 {/* Primary Button */}
                 <a
                   href="#layout"
-                  className="magnetic-btn group relative inline-flex items-center gap-3 bg-[#0A0A0A] hover:bg-[#202020] text-white px-8 py-4 rounded-full text-xs font-bold uppercase tracking-[0.18em] transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
+                  className="magnetic-btn group relative inline-flex items-center justify-center gap-3 bg-[#0A0A0A] hover:bg-[#202020] text-white px-8 py-4 rounded-full text-xs font-bold uppercase tracking-[0.18em] transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.15)] hover:-translate-y-0.5 w-full sm:w-auto text-center"
                 >
                   <span>Explore Residences</span>
                   <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -214,7 +215,7 @@ export default function Hero() {
                 {/* Secondary Button */}
                 <a
                   href="#contact"
-                  className="magnetic-btn group inline-flex items-center gap-3 bg-white/10 lg:bg-white/60 hover:bg-white/20 lg:hover:bg-white border border-white/20 lg:border-black/10 hover:border-white/40 lg:hover:border-black/35 text-white lg:text-black px-8 py-4 rounded-full text-xs font-bold uppercase tracking-[0.18em] transition-all duration-300 backdrop-blur-md hover:-translate-y-0.5"
+                  className="magnetic-btn group inline-flex items-center justify-center gap-3 bg-white/10 lg:bg-white/60 hover:bg-white/20 lg:hover:bg-white border border-white/20 lg:border-black/10 hover:border-white/40 lg:hover:border-black/35 text-white lg:text-black px-8 py-4 rounded-full text-xs font-bold uppercase tracking-[0.18em] transition-all duration-300 backdrop-blur-md hover:-translate-y-0.5 w-full sm:w-auto text-center"
                 >
                   <div className="w-5 h-5 rounded-full bg-white/10 lg:bg-black/5 flex items-center justify-center transition-colors group-hover:bg-white/20 lg:group-hover:bg-black/10">
                     <Play size={10} className="fill-current text-white lg:text-black translate-x-[1px]" />

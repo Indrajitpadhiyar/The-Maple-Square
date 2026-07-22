@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import AboutSection from "./components/AboutSection";
 import FloorPlans from "./components/FloorPlans";
 import ImageGallery from "./components/ImageGallery";
+import LocationSection from "./components/LocationSection";
 import Footer from "./components/Footer";
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
       <AboutSection />
       <FloorPlans />
       <ImageGallery />
+      <LocationSection />
       <Footer />
     </div>
   );
